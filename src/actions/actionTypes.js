@@ -1,0 +1,1 @@
+export const FETCH_RANDOM_MEAL = "FETCH_RANDOM_MEAL";
