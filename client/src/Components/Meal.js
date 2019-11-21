@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 const Meal = props => {
   return (
     <div>
-      <img className="ui fluid image" src={props.strMealThumb} />
+      <img
+        alt={props.strMeal}
+        className="ui fluid image"
+        src={props.strMealThumb}
+      />
       <div className="ui four column grid">
         <div className="two column row">
           <div className="column">
@@ -13,11 +17,15 @@ const Meal = props => {
           </div>
         </div>
         <div className="two column row">
-          <div class="column">
-            <img className="ui large rounded image" src={props.thumbnail}></img>
+          <div className="column">
+            <img
+              alt={props.strMeal}
+              className="ui large rounded image"
+              src={props.thumbnail}
+            ></img>
           </div>
           <div className="column">
-            <table class="ui celled table">
+            <table className="ui celled table">
               <thead>
                 <tr>
                   <th>Ingredient</th>
@@ -27,7 +35,7 @@ const Meal = props => {
               <tbody>
                 {props.ingredients.map(ingredient => {
                   return (
-                    <tr>
+                    <tr key={ingredient}>
                       <td data-label="Ingredient">{ingredient[0]}</td>
                       <td data-labe="Measure">{ingredient[1]}</td>
                     </tr>
@@ -42,7 +50,7 @@ const Meal = props => {
             ? props.tags.split(",").map(tag => {
                 return (
                   <div className="column" key={tag}>
-                    <div class="ui label">{tag}</div>
+                    <div className="ui label">{tag}</div>
                   </div>
                 );
               })
@@ -95,7 +103,4 @@ const mapStateToProps = ({ randomMeal }) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(Meal);
+export default connect(mapStateToProps, null)(Meal);
