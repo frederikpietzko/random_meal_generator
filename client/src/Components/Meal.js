@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import Instructions from "./Instructions";
+
 const Meal = props => {
   return (
     <div>
@@ -64,7 +66,7 @@ const Meal = props => {
         </div>
         <div className="one column row">
           <div className="column">
-            <p>{props.instructions}</p>
+            <Instructions text={props.instructions} />
           </div>
         </div>
 
